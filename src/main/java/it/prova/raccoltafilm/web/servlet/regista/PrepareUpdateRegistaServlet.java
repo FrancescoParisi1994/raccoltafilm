@@ -29,7 +29,7 @@ public class PrepareUpdateRegistaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idStringRegista=request.getParameter("idRegista");
+		String idStringRegista=request.getParameter("idFilm");
 		
 		if (!NumberUtils.isCreatable(idStringRegista)) {
 			// qui ci andrebbe un messaggio nei file di log costruito ad hoc se fosse attivo

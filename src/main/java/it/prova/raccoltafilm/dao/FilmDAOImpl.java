@@ -38,7 +38,7 @@ public class FilmDAOImpl implements FilmDAO {
 	@Override
 	public void update(Film filmInstance) throws Exception {
 		// TODO Auto-generated method stub
-
+		entityManager.merge(filmInstance);
 	}
 
 	@Override

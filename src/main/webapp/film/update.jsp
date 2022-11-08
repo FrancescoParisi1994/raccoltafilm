@@ -30,20 +30,20 @@
 				    </div>
 				    <div class='card-body'>
 		
-							<form method="post" action="#######" class="row g-3" novalidate="novalidate">
+							<form method="post" action="ExecuteUpdateFilmServlet" class="row g-3" novalidate="novalidate">
 							
 							
 								<div class="col-md-6">
 									<label for="titolo" class="form-label">Titolo <span class="text-danger">*</span></label>
-									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo" value="${insert_film_attr.titolo }">
+									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo" value="${update_film_attr.titolo }">
 								</div>
 								
 								<div class="col-md-6">
 									<label for="genere" class="form-label">Genere <span class="text-danger">*</span></label>
-									<input type="text" name="genere" id="genere" class="form-control" placeholder="Inserire il genere" value="${insert_film_attr.genere }">
+									<input type="text" name="genere" id="genere" class="form-control" placeholder="Inserire il genere" value="${update_film_attr.genere }">
 								</div>
 							
-								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDate" type='date' value='${insert_film_attr.dataPubblicazione}' />
+								<fmt:formatDate pattern='yyyy-MM-dd' var="parsedDate" type='date' value='${update_film_attr.dataPubblicazione}' />
 								<div class="col-md-6">
 									<label for="dataPubblicazione" class="form-label">Data di Pubblicazione <span class="text-danger">*</span></label>
 	                        		<input class="form-control" id="dataPubblicazione" type="date" placeholder="dd/MM/yy" 
@@ -52,7 +52,7 @@
 								
 								<div class="col-md-6">
 									<label for="minutiDurata" class="form-label">Durata (minuti) <span class="text-danger">*</span></label>
-									<input type="number" class="form-control" name="minutiDurata" id="minutiDurata" placeholder="Inserire la durata" value="${insert_film_attr.minutiDurata }">
+									<input type="number" class="form-control" name="minutiDurata" id="minutiDurata" placeholder="Inserire la durata" value="${update_film_attr.minutiDurata }">
 								</div>
 								
 								
@@ -61,13 +61,13 @@
 								    <select class="form-select" id="regista.id" name="regista.id">
 								    	<option value="" selected> -- Selezionare una voce -- </option>
 								      	<c:forEach items="${registi_list_attribute }" var="registaItem">
-								      		<option value="${registaItem.id}" ${insert_film_attr.regista.id == registaItem.id?'selected':''} >${registaItem.nome } ${registaItem.cognome }</option>
+								      		<option value="${registaItem.id}" ${update_film_attr.regista.id == registaItem.id?'selected':''} >${registaItem.nome } ${registaItem.cognome }</option>
 								      	</c:forEach>
 								    </select>
 								</div>
 								
 								<div class="col-12">
-									<input type="hidden" value="${insert_film_attr.regista.id}" name="id">
+									<input type="hidden" value="${update_film_attr.id}" name="id">
 									<button type="submit" name="insertSubmit" value="insertSubmit" id="insertSubmit" class="btn btn-primary">Conferma</button>
 								</div>
 		
