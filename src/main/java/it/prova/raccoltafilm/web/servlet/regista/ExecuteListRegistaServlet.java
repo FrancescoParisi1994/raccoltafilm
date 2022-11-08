@@ -32,6 +32,9 @@ public class ExecuteListRegistaServlet extends HttpServlet {
 			String operationResult = request.getParameter("operationResult");
 			if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("SUCCESS"))
 				request.setAttribute("successMessage", "Operazione effettuata con successo");
+			if (StringUtils.isNotBlank(operationResult) && operationResult.equalsIgnoreCase("NOT_FOUND"))
+				request.setAttribute("errorMessage", "Elemento non trovato.");
+
 
 			request.setAttribute("registi_list_attribute", registaService.listAllElements());
 		} catch (Exception e) {

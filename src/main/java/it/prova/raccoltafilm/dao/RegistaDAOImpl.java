@@ -36,7 +36,7 @@ public class RegistaDAOImpl implements RegistaDAO {
 	@Override
 	public void update(Regista o) throws Exception {
 		// TODO Auto-generated method stub
-
+		entityManager.merge(o);
 	}
 
 	@Override
