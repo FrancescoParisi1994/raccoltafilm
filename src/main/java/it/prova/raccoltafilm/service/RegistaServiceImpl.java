@@ -59,8 +59,23 @@ public class RegistaServiceImpl implements RegistaService {
 
 	@Override
 	public Regista caricaSingoloElementoConFilms(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		// questo è come una connection
+		EntityManager entityManager = LocalEntityManagerFactoryListener.getEntityManager();
+
+		try {
+			// uso l'injection per il dao
+			registaDAO.setEntityManager(entityManager);
+
+			// eseguo quello che realmente devo fare
+			return registaDAO.findEager(id);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			LocalEntityManagerFactoryListener.closeEntityManager(entityManager);
+		}
+	
 	}
 
 	@Override

@@ -27,6 +27,12 @@ public class RegistaDAOImpl implements RegistaDAO {
 		return entityManager.createQuery("from Regista", Regista.class).getResultList();
 	}
 
+	
+	@Override
+	public Regista findEager(Long id) throws Exception {
+		 return entityManager.createQuery("from Regista r left join fetch r.films where r.id=:id", Regista.class).setParameter("id", id).getResultStream().findFirst().orElse(null);
+	}
+
 	@Override
 	public Optional<Regista> findOne(Long id) throws Exception {
 		Regista result = entityManager.find(Regista.class, id);
